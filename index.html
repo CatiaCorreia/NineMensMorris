@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha</title>
+  <link rel="stylesheet" href="files/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- menu inicial -->
+    <div id="menu-view" class="view active">
+      <h1>Welcome to "Trilha"</h1>
+      <div class="button-container">
+        <button onclick="navigateTo('login-view')">Online</button>
+        <button onclick="navigateTo('config-view')">Offline</button>
+        <button onclick="navigateTo('howtoplay-view')">How to play</button>
+      </div>
+    </div>
+
+    <div id="howtoplay-view" class="view">
+      <h1>How to play</h1>
+
+      <div id="tutorial-content">
+        <div class="tutorial-step active">
+          <h2>Introduction</h2>
+          <p>Trilha is a two-player strategy board game where players aim to form “mills” and remove their opponent’s pieces. </p>
+        </div>
+    
+        <div class="tutorial-step">
+          <h2>Board Structure</h2>
+          <p>The game board consists of concentric squares connected by lines at the midpoints of their sides. </p>
+          <p>Typically, the board has three squares, though variations with more squares are possible. Each square has 8 positions (the corners and midpoints of each side)</p>
+          <p>Players each have a set of pieces (3 pieces per square on the board)</p>
+        </div>
+    
+        <div class="tutorial-step">
+          <h2>Game Phases</h2>
+          <p>Phase 1 - Placing Pieces: Players take turns placing one of their pieces on any empty spot.</p>
+          <p>When all pieces are on the board, Phase 2 begins.</p>
+          <p>Phase 2 - Moving Pieces: Players alternate moves, each moving one piece to an adjacent, connected space.</p>
+          <p>When a player is reduced to 3 pieces, they enter “flying” mode, allowing them to move to any free spot on the board.</p>
+        </div>
+    
+        <div class="tutorial-step">
+          <h2>Mills</h2>
+          <p>A mill is created when a player places three pieces of their color in a straight line, either vertically or horizontally (never diagonally).</p>
+          <p>When a mill is formed, the player can remove one of their opponent’s pieces (that is not part of another mill, if possible).</p>
+        </div>
+    
+        <div class="tutorial-step">
+          <h2>Winning and Draw Conditions</h2>
+          <p>Victory: If an opponent is reduced to 2 pieces, they lose.</p>
+          <p>Draw: If a valid move cannot be made, or if both players have 3 pieces and no player wins within 10 moves, the game is a tie.</p>
+        </div>
+      </div>
+    
+
+      <div class="tutorial-navigation">
+        <button onclick="previousStep()">&#9664; Previous</button>
+        <button onclick="navigateTo('menu-view')">Back to menu</button>
+        <button onclick="nextStep()">Next &#9654;</button>
+      </div>
+    </div>
+
+    <!-- login -->
+    <div id="login-view" class="view">
+      <h1>LOGIN</h1>
+      <div class="login-container">
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        
+        <button onclick="register()">Login</button>
+      </div>
+    </div>
+
+    <!-- configuracoes ONLINE -->
+    <div id="config-on-view" class="view">
+      <h2>Game Configuration</h2>
+      <div class="config-container">
+
+        <label for="board-size">Board Size</label>
+        <select id="board-size">
+          <option value="2">2</option>
+          <option value="3" selected>3</option> 
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+      </div>
+      <button onclick="join()">Start Game</button>
+    </div>
+
+    <div id="wait-players" class="view">
+      <p>Waiting for other player to join...</p>
+      <p>You can leave here without consequences</p>
+      <button onclick="leave()">Leave</button>
+    </div>
+
+    <!-- configuracoes -->
+    <div id="config-view" class="view">
+      <h2>Game Configuration</h2>
+      <div class="config-container">
+        <label for="game-mode">Game Mode:</label>
+        <select id="game-mode">
+          <option value="pvp" selected>Player 1 vs Player 2</option>
+          <option value="pvai">Player 1 vs AI</option>
+        </select>
+
+        <label for="board-size">Board Size</label>
+        <select id="board-size">
+          <option value="2">2</option>
+          <option value="3" selected>3</option> 
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="first-player">First to Play (red pieces)</label>
+        <select id="first-player">
+          <option value="player1" selected>Player 1</option>
+          <option value="player2">Player 2</option>
+        </select>
+
+
+      </div>
+      <button onclick="main()">Start Game</button>
+
+    </div>
+
+
+    <div id="game-view" class="view">
+      <div id="control-buttons">
+        <button onclick="ranking()">Classifications</button>
+        <button onclick="leave()">Leave</button>
+      </div>
+
+      <div id="container">
+        <!-- peças player 1 -->
+        <div class="circulo" id="red-pieces"></div>
+        
+        <!-- tabuleiro -->
+        <div id="tabuleiro"></div>
+        
+        <!-- peças player 2 -->
+        <div class="circulo" id="blue-pieces"></div>
+        
+      </div>
+
+      <div id="game-log" class="log-container">
+        <h3>Game Log</h3>
+        <div id="log-messages"></div>
+      </div>
+      
+    </div>
+
+    <div id="cla-view" class="view">
+
+    </div>
+  </div>
+
+
+  <script src="files/game_logic.js"></script>
+  <script src="files/utils.js"></script>
+  <script src="files/main.js"></script>
+  <script src="files/com.js"></script>
+</body>
+</html>

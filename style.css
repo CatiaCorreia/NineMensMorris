@@ -1,0 +1,206 @@
+body, html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+
+#app {
+    text-align: center;
+
+}
+  
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+  
+#menu-view button {
+    width: 200px;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.tutorial-step {
+    display: none;
+
+}
+
+.tutorial-step.active {
+    display: block;
+}
+
+.tutorial-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tutorial-navigation button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+  
+.login-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.config-container {
+    display:flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: left;
+    gap: 5px;
+}
+
+#config-view button {
+    padding: 10px;
+}
+
+.view {
+    display: none;
+}
+
+
+#game-log {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20vw;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border: 2px solid #ccc;
+}
+
+#log-messages {
+    max-height: 90%;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-top: 10px;
+}
+
+
+#control-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    margin-left: -1400px;
+}
+
+#control-buttons button {
+    padding: 10px;
+    width: 150px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FF5733;
+    color: white;
+    border-radius: 5px;
+}
+
+.view.active {
+    display: block;
+}
+
+  
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+  
+#tabuleiro {
+    margin: 0 50px;
+}
+
+
+
+.linha-horizontal, .linha-vertical{
+    background-color: black;
+    position: absolute;
+    z-index: -1;
+}
+
+.linha-horizontal {
+    height: 2px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+}
+
+.linha-vertical {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+}
+
+.quadrado {
+    position: relative;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.botao {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+  
+.circulo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.circulo-centralizado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+#red-pieces, 
+#blue-pieces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: -40px;
+}
+  
+
+/* BOTÕES */
+.top-left { top: 0; left: 0; transform: translate(-50%, -50%); }
+.top-mid { top: 0; left: 50%; transform: translate(-50%, -50%); }
+.top-right { top: 0; right: 0; transform: translate(50%, -50%); }
+.right-mid { top: 50%; right: 0; transform: translate(50%, -50%); }
+.bottom-right { bottom: 0; right: 0; transform: translate(50%, 50%); }
+.bottom-mid { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+.bottom-left { bottom: 0; left: 0; transform: translate(-50%, 50%); }
+.left-mid { top: 50%; left: 0; transform: translate(-50%, -50%); }
